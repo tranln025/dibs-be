@@ -7,7 +7,7 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT;
 
-const routes = rquire('./routes');
+const routes = require('./routes');
 
 // --------------------------------- Middleware
 
