@@ -32,7 +32,7 @@ const PostSchema = mongoose.Schema({
   }],
   currentDib: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'Dib'
   },
   claimant: {
     type: Schema.Types.ObjectId,

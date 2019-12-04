@@ -13,7 +13,9 @@ const DibSchema = mongoose.Schema({
   },
   timeExpired: {
     type: Date,
-    default: Date.now,
+    default: function() {
+      return moment().add(1, 'hour');
+    }
   },
   claimed: {
     type: Boolean,
@@ -26,5 +28,3 @@ const DibSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('Dib', DibSchema);
-
-// moment(Date.now).add(1, 'hours')

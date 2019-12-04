@@ -2,7 +2,12 @@ const db = require('../models');
 
 // GET all posts
 const showAll = (req, res) => {
-  db.Post.find({}, (err, allPosts) => {
+  db.Post.find({})
+  .populate('author')
+  .populate('comments')
+  .populate('currentDib')
+  .populate('claimant')
+  .exec((err, allPosts) => {
     if(err) return res.status(500).json({
       status: 500,
       message: err
@@ -16,7 +21,12 @@ const showAll = (req, res) => {
 
 // GET one post
 const show = (req, res) => {
-  db.Post.findById(req.params.id, (err, foundPost) => {
+  db.Post.findById(req.params.id)
+  .populate('author')
+  .populate('comments')
+  .populate('currentDib')
+  .populate('claimant')
+  .exec((err, foundPost) => {
     if(err) return res.status(500).json({
       status: 500,
       message: err
@@ -30,6 +40,7 @@ const show = (req, res) => {
 
 // POST create post
 const addPost = (req, res) => {
+  req.body.author = req.session.currentUser.id;
   db.Post.create(req.body, (error, createdPost) => {
     if (error) return console.log(error);
     db.User.findById(createdPost.author, (err, foundUser) => {
