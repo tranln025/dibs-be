@@ -54,7 +54,7 @@ const login = (req, res) => {
     if (err) return res.status(500).json({ status: 500, message: 'Something went wrong. Please try again' });
 
     if (!foundUser) {
-      return res.status(400).json({ status: 400, message: '[[user doesnt exist]] Username or password is incorrect'});
+      return res.status(400).json({ status: 400, message: 'Username or password is incorrect'});
     }
 
     bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {

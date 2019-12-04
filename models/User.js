@@ -10,14 +10,20 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: [true, 'Last name is required'],
   },
+  username: {
+    type: String,
+    required: [true, 'Name is required'],
+  },
   email: {
     type: String,
     required: [true, 'Email is required'],
     unique: true,
+    match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
   },
   password: {
     type: String,
     required: [true, 'Password is required'],
+    select: false,
   },
   photo: {
     type: String,
@@ -39,6 +45,13 @@ const UserSchema = mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'Dib'
   }],
+});
+
+UserSchema.set("toJSON", {
+  transform: (doc, ret, opt) => {
+    delete ret["password"];
+    return ret;
+  }
 });
 
 module.exports = mongoose.model('User', UserSchema);
