@@ -23,7 +23,7 @@ const UserSchema = mongoose.Schema({
   password: {
     type: String,
     required: [true, 'Password is required'],
-    select: false,
+    // select: false,
   },
   photo: {
     type: String,
@@ -47,11 +47,13 @@ const UserSchema = mongoose.Schema({
   }],
 });
 
-UserSchema.set("toJSON", {
-  transform: (doc, ret, opt) => {
-    delete ret["password"];
-    return ret;
-  }
-});
+// UserSchema.set("toJSON", {
+//   transform: (doc, ret, opt) => {
+//     delete ret["password"];
+//     return ret;
+//   }
+// });
+
+// TODO password select false HOW TO LOGIN!!!
 
 module.exports = mongoose.model('User', UserSchema);

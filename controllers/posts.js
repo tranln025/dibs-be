@@ -14,6 +14,7 @@ const showAll = (req, res) => {
     });
     res.status(200).json({
       status: 200,
+      count: allPosts.length,
       data: allPosts
     });
   });
