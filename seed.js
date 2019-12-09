@@ -16,11 +16,11 @@ const freebiesList = [
     description: "He sux but maybe someone else will enjoy him"
   },
   {
-    author: "5de8b40abe74ba4614e8e0fb",
+    author: "5de8b507be74ba4614e8e0fd",
     title: "Pre-loved coat",
     photo: "https://www.spurwesternwear.com/images/Product/medium/5266.jpg",
     address: "3 Test Dr",
-    description: "I bought this coat for my nephew to grow into but his parents say they don't want to hold onto it for another 20 years until he fits it. That's not my nephew in the pic."
+    description: "I bought this coat for my nephew to grow into but his parents say they don't want to hold onto it for another 20 years until he fits it. That's not my nephew in the pic I'm not sure who it is I found it on the web."
   },
   {
     author: "5de8b3a0be74ba4614e8e0fa",
@@ -37,7 +37,7 @@ const freebiesList = [
     description: "I just upgraded to the iPhone 14XL and don't need this one anymore. If no one wants it I'm trashing it."
   },
   {
-    author: "5de8b40abe74ba4614e8e0fb",
+    author: "5de8b52cbe74ba4614e8e0fe",
     title: "Look at all those chickens",
     photo: "http://static3.mypetchicken.com/images/product_images/Large/Studio_WSilkie_649_bc.jpg",
     address: "6 Test Dr",

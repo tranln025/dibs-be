@@ -35,8 +35,8 @@ const show = (req, res) => {
 };
 
 // POST create dib
-const addDib = (req, res) => {
-  // req.body.post = [[ insert post ID here ]]
+const newDib = (req, res) => {
+  console.log(req.body)
   db.Dib.create(req.body, (error, createdDib) => {
     if (error) return console.log(error);
     db.Post.findById(createdDib.post._id, (err, foundPost) => {
@@ -48,7 +48,7 @@ const addDib = (req, res) => {
           status: 201,
           data: updatedPost,
         });
-      })
+      });
     });
   });
 };
@@ -80,7 +80,7 @@ const deleteDib = (req, res) => {
 module.exports = {
     showAll,
     show,
-    addDib,
+    newDib,
     updateDib,
     deleteDib,
 };

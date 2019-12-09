@@ -11,7 +11,7 @@ router.get('/', ctrl.posts.showAll);
 router.get('/:id', ctrl.posts.show);
 
 // POST create post
-router.post('/new', ctrl.posts.addPost);
+router.post('/', ctrl.posts.addPost);
 
 // PUT update post
 router.put('/:id', ctrl.posts.updatePost);

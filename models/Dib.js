@@ -5,7 +5,8 @@ var moment = require('moment');
 const DibSchema = mongoose.Schema({
   post: {
     type: Schema.Types.ObjectId,
-    ref: 'Post'
+    ref: 'Post',
+    unique: true,
   },
   timeCreated: {
     type: Date,

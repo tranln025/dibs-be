@@ -11,7 +11,7 @@ router.get('/', ctrl.dibs.showAll);
 router.get('/:id', ctrl.dibs.show);
 
 // POST create dib
-router.post('/new', ctrl.dibs.addDib);
+router.post('/', ctrl.dibs.newDib);
 
 // PUT update dib
 router.put('/:id', ctrl.dibs.updateDib);
