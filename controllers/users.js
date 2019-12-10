@@ -70,10 +70,37 @@ const update = (req, res) => {
   });
 };
 
+// GET User to add dib to dibsClaimed array
+const addClaimedDib = (req, res) => {
+  db.User.findById(req.query.dibberId)
+  .populate('posts')
+  .populate('comments')
+  .populate('dibsClaimed')
+  .exec((err, foundUser) => {
+    console.log('foundUser object >>', foundUser)
+    if (err) return res.status(500).json({
+      status: 500,
+      message: err
+    });
+    foundUser.dibsClaimed.push(req.query.dibId);
+    foundUser.save((err, updatedUser) => {
+      if (err) return res.status(500).json({
+        status: 500,
+        message: err
+      });
+      res.json({
+          status: 201,
+          data: updatedUser,
+      });
+    });
+  });
+};
+
 
 module.exports = {
   show,
   update,
   showAllUsers,
-  deleteAllUsers
+  deleteAllUsers,
+  addClaimedDib
 };

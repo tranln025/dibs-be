@@ -6,7 +6,6 @@ const DibSchema = mongoose.Schema({
   post: {
     type: Schema.Types.ObjectId,
     ref: 'Post',
-    unique: true,
   },
   timeCreated: {
     type: Date,
@@ -15,8 +14,9 @@ const DibSchema = mongoose.Schema({
   timeExpired: {
     type: Date,
     default: function() {
-      return moment().add(1, 'hour');
+      return moment().add(1, 'm');
     }
+    // TODO change back to 1 hour before deployment
   },
   claimed: {
     type: Boolean,
