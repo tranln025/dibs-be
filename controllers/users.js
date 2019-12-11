@@ -61,7 +61,7 @@ const update = (req, res) => {
   message: 'Please log in and try again'
   });
 
-  db.User.findById(req.session.currentUser.id, (err, updatedUser) => {
+  db.User.findByIdAndUpdate(req.session.currentUser.id, req.body, (err, updatedUser) => {
     if (err) return console.log(err);
     res.json({
       status: 200,
