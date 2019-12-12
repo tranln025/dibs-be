@@ -14,7 +14,7 @@ const DibSchema = mongoose.Schema({
   timeExpired: {
     type: Date,
     default: function() {
-      return moment().add(1, 'm');
+      return moment().add(1, 'h');
     }
     // TODO change back to 1 hour before deployment
   },

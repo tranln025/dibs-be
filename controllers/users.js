@@ -77,7 +77,6 @@ const addClaimedDib = (req, res) => {
   .populate('comments')
   .populate('dibsClaimed')
   .exec((err, foundUser) => {
-    console.log('foundUser object >>', foundUser)
     if (err) return res.status(500).json({
       status: 500,
       message: err

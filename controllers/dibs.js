@@ -38,8 +38,8 @@ const show = (req, res) => {
 // POST create dib
 const newDib = (req, res) => {
   console.log(req.body)
-  db.Dib.create(req.body, (error, createdDib) => {
-    if (error) return console.log(error);
+  db.Dib.create(req.body, (err, createdDib) => {
+    if (err) return console.log(err);
     db.Post.findById(createdDib.post._id, (err, foundPost) => {
       if (err) return console.log(err);
       foundPost.currentDib = createdDib._id;
@@ -68,8 +68,8 @@ const updateDib = (req, res) => {
 
 // DELETE one dib
 const deleteDib = (req, res) => {
-  db.Dib.findByIdAndDelete(req.params.id, (error, deletedDib) => {
-    if (error) return console.log(error);
+  db.Dib.findByIdAndDelete(req.params.id, (err, deletedDib) => {
+    if (err) return console.log(err);
     res.json({
       status: 200,
       data: deletedDib

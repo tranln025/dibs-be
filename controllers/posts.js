@@ -42,8 +42,8 @@ const show = (req, res) => {
 // POST create post
 const addPost = (req, res) => {
   req.body.author = req.session.currentUser.id;
-  db.Post.create(req.body, (error, createdPost) => {
-    if (error) return console.log(error);
+  db.Post.create(req.body, (err, createdPost) => {
+    if (err) return console.log(err);
     db.User.findById(createdPost.author, (err, foundUser) => {
       if (err) return console.log(err);
       foundUser.posts.push(createdPost._id);
@@ -72,8 +72,8 @@ const updatePost = (req, res) => {
 
 // DELETE one post
 const deletePost = (req, res) => {
-  db.Post.findByIdAndDelete(req.params.id, (error, deletedPost) => {
-    if (error) return console.log(error);
+  db.Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
+    if (err) return console.log(err);
     res.json({
       status: 200,
       data: deletedPost
