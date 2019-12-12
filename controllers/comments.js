@@ -15,13 +15,10 @@ const showAll = (req, res) => {
 };
 
 const addComment = (req, res) => {
-  console.log("req.body>>>", req.body)
   db.Comment.create(req.body, (err, createdComment) => {
     if (err) return console.log(err);
-    console.log('COMMENT CREATED >>> ', createdComment);
     db.Post.findById(createdComment.post, (err, foundPost) => {
       if (err) return console.log(err);
-      console.log('add comment created to its associated post: ', foundPost);
       foundPost.comments.push(createdComment._id);
       foundPost.save((err, savedPost) => {
         if (err) console.log(err);
